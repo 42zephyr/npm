@@ -55,7 +55,7 @@
                     <td>{{Student.__v}} </td>
                     <td><router-link v-bind:to="'/Studinfo/'+Student._id" v-on:click="clicked(Student._id)">{{Student._id}}</router-link> </td>
                 <td><button v-on:click.prevent="update(Student._id)" >Update</button></td>
-                    <td><a href="#" v-on:click="del(Student._id)">Delete</a></td>
+                    <td><a href="#" v-on:click.prevent="del(Student._id)" v-show="Student.group==getgroup.group">Delete</a></td>
                 </template>
             </tr> 
             <br>
@@ -197,6 +197,9 @@
             this.$store.commit('setCount',i);
                 return this.$store.getters.getCount;
                 this.chst=this.$store.getters.getback;
+  },
+  getgroup(){
+      return this.$store.getters.getst;
   }
     }
     }

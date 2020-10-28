@@ -9,11 +9,13 @@ const store= new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         count:0,
-        color:''
+        color:'',
+        student:null
     },
     mutations: {
         setCount:(state,c)=>state.count=c,
         back:(state,style)=>state.color=style,
+        setst:(state,stud)=>state.student=stud,
     },
     getters: {
         getCount:(state)=>
@@ -22,6 +24,10 @@ const store= new Vuex.Store({
         },
         getback:(state)=>{
             return(state.color)
+        },
+        getst:(state)=>
+        {
+            return(state.student)
         }
     }
 })
